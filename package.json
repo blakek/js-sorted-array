@@ -1,6 +1,6 @@
 {
   "name": "@blakek/sorted-array",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "dist/sorted-array.cjs.js",
   "module": "dist/sorted-array.esm.js",
   "browser": "dist/sorted-array.umd.js",
