@@ -1,0 +1,89 @@
+{
+  "name": "@blakek/sorted-array",
+  "version": "0.0.0",
+  "main": "dist/sorted-array.cjs.js",
+  "module": "dist/sorted-array.esm.js",
+  "browser": "dist/sorted-array.umd.js",
+  "author": "Blake Knight <oss.ideas@gmail.com> (https://blakek.me/)",
+  "description": "🔢 more efficient array functions for sorted arrays (e.g. binary search)",
+  "repository": "https://github.com/blakek/sorted-array",
+  "homepage": "https://github.com/blakek/sorted-array#readme",
+  "bugs": {
+    "url": "https://github.com/blakek/sorted-array/issues"
+  },
+  "keywords": [
+    "binary",
+    "search",
+    "array",
+    "sorted"
+  ],
+  "license": "MIT",
+  "files": [
+    "dist/**"
+  ],
+  "sideEffects": false,
+  "types": "dist/index.d.ts",
+  "bin": "dist/cli.js",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "ava": {
+    "extensions": [
+      "js",
+      "ts"
+    ],
+    "files": [
+      "src/**/*.test.ts"
+    ],
+    "ignoredByWatcher": [
+      "!src/**"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-typescript": "^7.12.7",
+    "@rollup/plugin-babel": "^5.2.2",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.0.0",
+    "@rollup/plugin-typescript": "^8.0.0",
+    "@types/glob": "^7.1.3",
+    "@typescript-eslint/eslint-plugin": "^4.9.0",
+    "@typescript-eslint/parser": "^4.9.0",
+    "amper-scripts": "^1.0.0-1",
+    "ava": "^3.13.0",
+    "nodemon": "^2.0.6",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.34.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.1.2"
+  },
+  "peerDependencies": {},
+  "scripts": {
+    "build": "run-s build:clean build:types build:js",
+    "build:clean": "rimraf ./dist",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "rollup -c",
+    "format-check": "amper-scripts format-check '*.{js,ts,tsx}' 'src/**/*.{js,ts,tsx}'",
+    "format": "amper-scripts format-write '*.{js,ts,tsx}' 'src/**/*.{js,ts,tsx}'",
+    "lint": "amper-scripts lint --config ./.eslintrc.js '*.{js,ts,tsx}' 'src/**/*.{js,ts,tsx}'",
+    "prepack": "run-s validate build",
+    "test": "ava",
+    "typeCheck": "tsc --noEmit",
+    "validate": "run-p format-check lint typeCheck"
+  }
+}
